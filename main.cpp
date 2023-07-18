@@ -27,35 +27,24 @@ class Point
   public:
     double x;
     double y;
-    Point(){}
     Point(double x, double y){
       this->x=x;
       this->y=y;
-    }
-    double getX(){
-      return x;
-    }
-    double getY(){
-      return y;
     }
     double distance_to_origin(){
       double dist = sqrt(pow(x,2)+pow(y,2));
       return dist;
     }
     double distance_to_point(Point obj){
-      double dist = sqrt(pow(x-obj.getX(),2)+pow(y-obj.getY(),2));
+      double dist = sqrt(pow(x-obj.x,2)+pow(y-obj.x,2));
       return dist;
     }
 };
 
 class Line{
   public:
-  Point p1();
-  Point p2();
-  Line(Point p1, Point p2){
-    this->p1 = p1;
-    this->p2 = p2;
-  }
+  Point p1;
+  Point p2;
   double length(){
     return(p1.distance_to_point(p2));
   }
@@ -81,6 +70,8 @@ int main()
   Point q(0.2, 0.5);
   std::cout <<q.distance_to_point(p)<< std::endl;
   return 0;
-  Line l(p,q);
+  Line l;
+  l.p1 = (1,2);
+  l.p2 = (0.2, 0.5);
   std::cout <<l.length()<< std::endl;
 }
